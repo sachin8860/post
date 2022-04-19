@@ -1,0 +1,18 @@
+<h1>Discussion Forum</h1>
+<div class="post-list">
+  <ul>
+    <% @posts.each do |post| %>
+      <div class="card">
+        <div class="card-body">
+          <li>
+            <a href="/posts/<%= post.id %>"><%= post.title %></a>
+            <br>
+            <%= post.body %>
+          </li>
+        </div>
+      </div>
+      <br>
+      <% end %>
+      <%= link_to "Write a post", new_post_path, class:'btn btn-secondary m-5' %>
+</div>
+

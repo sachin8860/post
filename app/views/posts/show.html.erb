@@ -1,0 +1,28 @@
+<%# Post Section %>
+<div class="card m-5">
+    <div class="card-body">
+        <h3 class="card-title"><%= @post.title %></h3>
+        <h6 class="card-subtitle text-muted mb-3">@<%= @post.created_at%></h6>
+        <p class="card-text"><%= @post.body %></p>
+    </div>
+</div>
+
+<%# Comments Section %>
+<div class="m-5">
+  <div class="container">
+    <h1 class="display-6 my-3"><u>Comments</u></h1> 
+    <% if @post.comments.first.persisted? %> 
+      <%= render @post.comments %>
+    <%else%>
+      <p>No Comments Yet</p>
+    <%end%>
+  </div>
+</div>
+
+<%# Comments form %>
+<%= render '/comments/form' %>
+
+
+<%= link_to 'Back', posts_path, class:'btn btn-secondary' %> | 
+<%= link_to 'Edit', edit_post_path, class:'btn btn-info' %> | 
+<%= link_to 'Delete', post_path, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger'  %>

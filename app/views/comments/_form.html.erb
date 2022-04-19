@@ -1,0 +1,17 @@
+<div class="container col-md-4 col-sm-100 card">
+  <h5 class="form-head my-3 lead" style="">Add your comment</h5>
+  <%= form_for ([ @post, @comment ]) do |form| %>
+    <p>
+      <%= form.text_field :commenter, placeholder:'Enter your name ', class:'width100' %>
+    </p>
+    <p>
+      <%= form.text_area :body, placeholder:'Enter your comment..', class:'width100' %>
+    </p>
+    <p>
+      <%= form.file_field :avatar, class:'width100' %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+</div>

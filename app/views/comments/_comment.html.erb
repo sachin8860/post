@@ -1,0 +1,27 @@
+<% if comment.persisted? %>
+<div class="comment-sec">
+  
+  
+    <% if comment.avatar.present? %>
+    <div class="profile-pic">
+    <%= image_tag comment.avatar, class: 'comment-profile' %>
+    </div>
+    <% end %>
+  <div class="comments">
+  <p>
+    <u><%= comment.commenter %></u>
+    <br>@
+    <%= comment.created_at %>
+  </p>
+  
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+  <%= link_to "Edit", edit_post_comment_path(comment.post, comment), class:'btn btn-secondary' %>
+  <%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
+  </div>
+</div>
+  <hr>
+  
+<%end %>
